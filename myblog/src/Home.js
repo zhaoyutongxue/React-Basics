@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-const Home = () => {
-  return <h2>Home Page</h2>;
-=======
 import { useState, useEffect } from "react";
 import ProjectList from "./ProjectList";
 
@@ -45,7 +41,6 @@ const Home = () => {
       <button onClick={() => setName("Tim")}>change name</button>
     </div>
   );
->>>>>>> Stashed changes
 };
 
 export default Home;
