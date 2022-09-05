@@ -4,9 +4,6 @@ import ProjectList from "./ProjectList";
 const Home = () => {
   const [projects, setProjects] = useState(null);
 
-  // test effect hook dependency
-  const [Name, setName] = useState("Peter");
-
   useEffect(() => {
     fetch("http://localhost:8080/projects")
       .then((res) => {
@@ -17,12 +14,7 @@ const Home = () => {
       });
   }, []);
 
-  return (
-    <div>
-      {projects && <ProjectList projects={projects} title="lalala" Name={Name} />}
-      <button onClick={() => setName("Tim")}>change name</button>
-    </div>
-  );
+  return <div>{projects && <ProjectList projects={projects} title="lalala" />}</div>;
 };
 
 export default Home;
