@@ -7,23 +7,20 @@ const Home = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8080/projects")
-      .then((res) => {
+    const getProjects = async () => {
+      try {
+        const res = await fetch("http://localhost:8080/projects");
         if (!res.ok) {
           throw Error("could not fetch the data for that resource");
         }
-        const result = res.json();
-        return result;
-      })
-      .then((data) => {
-        setError(false);
+        const data = await res.json();
         setProjects(data);
-        setIsPending(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         setError(err.message);
         setIsPending(false);
-      });
+      }
+    };
+    getProjects();
   }, []);
 
   return (
