@@ -1,27 +1,8 @@
 import { useState, useEffect } from "react";
 import ProjectList from "./ProjectList";
-
+import useFetch from "./useFetch";
 const Home = () => {
-  const [projects, setProjects] = useState(null);
-  const [isPending, setIsPending] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const getProjects = async () => {
-      try {
-        const res = await fetch("http://localhost:8080/projects");
-        if (!res.ok) {
-          throw Error("could not fetch the data for that resource");
-        }
-        const data = await res.json();
-        setProjects(data);
-      } catch (err) {
-        setError(err.message);
-        setIsPending(false);
-      }
-    };
-    getProjects();
-  }, []);
+  const { data: projects, isPending, error } = useFetch("http://localhost:8080/projects");
 
   return (
     <div>
