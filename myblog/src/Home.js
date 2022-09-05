@@ -7,14 +7,15 @@ const Home = () => {
   useEffect(() => {
     fetch("http://localhost:8080/projects")
       .then((res) => {
-        return res.json();
+        const result = res.json();
+        return result;
       })
       .then((data) => {
         setProjects(data);
       });
   }, []);
 
-  return <div>{projects && <ProjectList projects={projects} title="lalala" />}</div>;
+  return <div>{projects && <ProjectList projects={projects} />}</div>;
 };
 
 export default Home;
