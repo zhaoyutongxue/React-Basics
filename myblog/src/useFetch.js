@@ -21,7 +21,7 @@ const useFecth = (url) => {
     setTimeout(() => {
       getProjects();
       setIsPending(false);
-    }, 500);
+    }, 100);
   }, [url]);
 
   return { data, isPending, error };

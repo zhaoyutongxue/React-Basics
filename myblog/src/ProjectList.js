@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProjectList = (props) => {
   //   destructure props
   const { projects, title } = props;
@@ -9,7 +11,9 @@ const ProjectList = (props) => {
       </div>
       {projects.map((project) => (
         <div className="project-preview" key={project.id}>
-          <h3>{project.title}</h3>
+          <Link to={`/projects/${project.id}`}>
+            <h3>{project.title}</h3>
+          </Link>
           <p>{project.body}</p>
           <h2>written by {project.author}</h2>
         </div>
