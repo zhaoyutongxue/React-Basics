@@ -3,6 +3,7 @@ import Home from "./Home";
 import Create from "./Create";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProjectDetail from "./ProjectDetail";
+import NothingFound from "./NothingFound";
 
 // this is the app component
 function App() {
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path={"/projects/:id"}>
               <ProjectDetail />
+            </Route>
+            <Route path={"*"}>
+              <NothingFound />
             </Route>
           </Switch>
         </div>
