@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 const ProjectDetail = () => {
   const { id } = useParams();
   const url = "http://localhost:8080/projects/" + id;
-  const { data: project, isPending, error } = useFetch(url);
+  const { data: project } = useFetch(url);
   const history = useHistory();
 
   const deleteHandler = () => {

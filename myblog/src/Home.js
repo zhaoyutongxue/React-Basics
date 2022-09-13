@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ProjectList from "./ProjectList";
 import useFetch from "./useFetch";
 import GreetingModal from "./GreetingModal";
